@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block title %}
+台灣收容所資訊網
+{% endblock %}
+{% block titlemessage %}
+<h1>
+  台灣收容所資訊網
+  <small class="text-muted">教養不棄養，結紮代替撲殺</small>
+</h1>
+{% endblock %}
+{% block content %}
+        <table class="table table-striped">
+          <tr><th>編號</th><th>主題</th><th>張貼時間</th></tr>
+          {% for post in posts %}
+          <tr>
+            <td>{{ post.id }}</td>
+            <td>
+              <a href="/post/{{post.slug}}/">{{ post.title }}</a>
+            </td>
+            <td>
+              {{ post.pub_date }}
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+        本網頁被瀏覽了{{hit_count}}次
+{% endblock %}
+
